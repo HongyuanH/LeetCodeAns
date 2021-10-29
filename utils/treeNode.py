@@ -7,6 +7,16 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    def __str__(self):
+        if self.left and self.right:
+            return f"{self.val}, left: {self.left.val}, right: {self.right.val}"
+        elif self.left and not self.right:
+            return f"{self.val}, left: {self.left.val}, right: None"
+        elif not self.left and self.right:
+            return f"{self.val}, left: None, right: {self.right.val}"
+        else:
+            return f"{self.val}, left: None, right: None"
+
     def toNestedList(self) -> List[List[int]]:
         # FIXME: node == None
         q = deque()
