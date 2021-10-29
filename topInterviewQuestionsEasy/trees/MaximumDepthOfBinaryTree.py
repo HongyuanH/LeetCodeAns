@@ -1,7 +1,15 @@
 from imports import *
 
 class Solution:
+    """
+    Runtime: 44 ms, faster than 63.78% of Python3 online submissions for Maximum Depth of Binary Tree.
+    Memory Usage: 16.1 MB, less than 41.99% of Python3 online submissions for Maximum Depth of Binary Tree.
+    """
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        """
+        Easy to understand...
+        Will iterative method save memory?
+        """
         if root is not None:
             leftDepth = self.maxDepth(root.left)
             rightDepth = self.maxDepth(root.right)

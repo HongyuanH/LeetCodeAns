@@ -2,10 +2,14 @@ from imports import *
 
 class Solution:
     """
-    Use a queue for level order traversal.
-    Need to keep track of the levels for each node.
+    Runtime: 36 ms, faster than 72.58% of Python3 online submissions for Binary Tree Level Order Traversal.
+    Memory Usage: 14.4 MB, less than 86.41% of Python3 online submissions for Binary Tree Level Order Traversal.
     """
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        """
+        Use a queue for level order traversal.
+        Need to keep track of the levels for each node.
+        """
         if not root:
             return []
         q = deque()

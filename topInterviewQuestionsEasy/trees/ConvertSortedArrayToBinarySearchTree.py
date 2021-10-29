@@ -3,12 +3,15 @@ from imports import *
 
 class Solution:
     """
-    Bisection to find roots for each subtrees.
-    Note it's easier to split between mid & mid+1, 
-    because mid-1 could be -1, which is not a valid index.
+    Runtime: 60 ms, faster than 79.73% of Python3 online submissions for Convert Sorted Array to Binary Search Tree.
+    Memory Usage: 15.7 MB, less than 15.73% of Python3 online submissions for Convert Sorted Array to Binary Search Tree.
     """
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-        
+        """
+        Bisection to find roots for each subtrees.
+        Note it's easier to split between mid & mid+1, 
+        because mid-1 could be -1, which is not a valid index.
+        """
         def helper(start, stop):
             if start == stop:
                 return None
