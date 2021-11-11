@@ -1,6 +1,9 @@
 from imports import *
 
 class Solution:
+    """
+    Interesting problem but not interesting problem.
+    """
     def deleteNode(self, node):
         """
         :type node: ListNode
