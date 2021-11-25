@@ -25,7 +25,5 @@ class Solution:
 
 if __name__ == "__main__":
     tree = Solution().sortedArrayToBST([-10,-3,0,5,9])
-    print(tree.left)
-    print(tree.right)
-    print(tree.toList()) #FIXME: wrong output
+    print(tree.toList())
     tree.draw()

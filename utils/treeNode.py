@@ -34,22 +34,50 @@ class TreeNode:
         return ans
     
     def toList(self) -> List[int]:
-        l = self.toNestedList()
-        return [val for level in l for val in level]
+        data = []
+        q = deque()
+        q.append(self)
+        while len(q):
+            node = q.popleft()
+            if node:
+                data.append(node.val)
+                q.append(node.left)
+                q.append(node.right)
+            else:
+                data.append(None)
+        # Removing the tailing None(s) is not necessary
+        # But this is the LeetCode way to save some space
+        while data and data[-1] is None:
+            del data[-1]
+        return data
 
     def draw(self):
         from drawtree import draw_level_order
-        draw_level_order(str(self.toList()))
-        
+        data = str(self.toList()).replace("None", "#").replace(" ", "")
+        draw_level_order(data)
+    
     @classmethod
-    def fromList(cls, l) -> "TreeNode":
-        if not l:
+    def fromStr(cls, data: str) -> "TreeNode":
+        data = data.replace("null", "None")
+        data = eval(data)
+        return cls.fromList(data)
+
+    @classmethod
+    def fromList(cls, data: List[int]) -> "TreeNode":
+        if not data:
             return None
-        def inner(index: int = 0) -> TreeNode:
-            if len(l) <= index or l[index] is None:
-                return None
-            node = TreeNode(l[index])
-            node.left = inner(2 * index + 1)
-            node.right = inner(2 * index + 2)
-            return node
-        return inner()
+        if not len(data) % 2:
+            # Make sure the last node has 2 leaves
+            data.append(None)
+        root = TreeNode(data[0])
+        q = deque()
+        q.append(root)
+        for left, right in zip(data[1::2], data[2::2]):
+            node = q.popleft()
+            if left is not None:
+                node.left = TreeNode(left)
+                q.append(node.left)
+            if right is not None:
+                node.right = TreeNode(right)
+                q.append(node.right)
+        return root

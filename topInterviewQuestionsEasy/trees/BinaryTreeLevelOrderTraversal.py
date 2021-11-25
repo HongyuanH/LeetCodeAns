@@ -28,6 +28,6 @@ class Solution:
 
 if __name__ == "__main__":
     # TODO:
-    root = TreeNode.fromList("[3,9,20,null,null,15,7]")
+    root = TreeNode.fromStr("[3,9,20,null,null,15,7]")
     root.draw()
     print(Solution().levelOrder(root))
