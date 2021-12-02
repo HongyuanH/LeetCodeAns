@@ -6,7 +6,10 @@ class Solution:
         end = findLastElement_rightInclusive(nums, target)
         return [start, end]
 
-
+"""
+https://labuladong.gitbook.io/algo-en/iii.-algorithmic-thinking/detailedbinarysearch
+"""
+    
 def findFirstElement_rightInclusive(nums, target):
     """
     * during each itertaion nums[right] is processed (inclusive)
